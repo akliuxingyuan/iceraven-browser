@@ -43,7 +43,7 @@ jobs:
           # See <https://stackoverflow.com/a/70010526> and <https://stackoverflow.com/a/70756876>
           # The runner seems to have ~6 gigs of memory, so we make sure to stay under that.
           # We have Java 11 so we don't have a perm size anymore.
-          GRADLE_OPTS: -Dorg.gradle.jvmargs="-XX:MaxMetaspaceSize=1g -Xms2g -Xmx4g -XX:+HeapDumpOnOutOfMemoryError -XX:HeapDumpPath=/dev/stderr"
+          GRADLE_OPTS: -Dorg.gradle.jvmargs="-XX:MaxRAMPercentage=45 -XX:InitialRAMPercentage=45 -XX:MinHeapFreeRatio=0 -XX:MaxHeapFreeRatio=100 -XX:MaxMetaspaceSize=1g -Xms2g -Xmx4g -XX:+HeapDumpOnOutOfMemoryError -XX:HeapDumpPath=/dev/stderr"
         with:
           gradle-home-cache-cleanup: true
           gradle-executable: /usr/bin/time
